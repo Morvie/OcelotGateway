@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  ocelotgateway:
+    image: ${DOCKER_REGISTRY-}ocelotgateway
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+    - 7230:443
