@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JSIG7Zj6r+INI4hKQXMyPjv8RXkSkjLDLmNa3ZRT156iWEC35HYaDgKTQOno7oDHAkaPWXI/tpWLsfzaKOnRHQ==",
+  "dgSpecHash": "Fusq/SnfNMAkbcEOFTMVmD3YSuACrfj9KIw8Mz7EiDmhbZOe/iKSxPrz89kQFP/zQkib2ZiN4+VNHdBm6ZuDJA==",
   "success": true,
-  "projectFilePath": "D:\\Gebruiker\\Mark Goertz\\School\\OcelotGateway\\OcelotGateway.csproj",
+  "projectFilePath": "D:\\OcelotGateway\\OcelotGateway.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\goert\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512",
     "C:\\Users\\goert\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.10\\microsoft.aspnetcore.authentication.jwtbearer.6.0.10.nupkg.sha512",

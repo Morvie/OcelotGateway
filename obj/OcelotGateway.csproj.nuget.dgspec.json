@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Gebruiker\\Mark Goertz\\School\\OcelotGateway\\OcelotGateway.csproj": {}
+    "D:\\OcelotGateway\\OcelotGateway.csproj": {}
   },
   "projects": {
-    "D:\\Gebruiker\\Mark Goertz\\School\\OcelotGateway\\OcelotGateway.csproj": {
+    "D:\\OcelotGateway\\OcelotGateway.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Gebruiker\\Mark Goertz\\School\\OcelotGateway\\OcelotGateway.csproj",
+        "projectUniqueName": "D:\\OcelotGateway\\OcelotGateway.csproj",
         "projectName": "OcelotGateway",
-        "projectPath": "D:\\Gebruiker\\Mark Goertz\\School\\OcelotGateway\\OcelotGateway.csproj",
+        "projectPath": "D:\\OcelotGateway\\OcelotGateway.csproj",
         "packagesPath": "C:\\Users\\goert\\.nuget\\packages\\",
-        "outputPath": "D:\\Gebruiker\\Mark Goertz\\School\\OcelotGateway\\obj\\",
+        "outputPath": "D:\\OcelotGateway\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\goert\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

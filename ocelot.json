@@ -13,11 +13,7 @@
           "Host": "host.docker.internal",
           "Port": 5300
         }
-      ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      }
+      ]
     },
     {
       "UpstreamPathTemplate": "/gateway/review/{id}",
@@ -41,11 +37,11 @@
       "UpstreamPathTemplate": "/gateway/popular",
       "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/api/movie/popular",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "host.docker.internal",
-          "Port": 7186
+          "Port": 5182
         }
       ]
     },
@@ -53,11 +49,11 @@
       "UpstreamPathTemplate": "/gateway/upcoming",
       "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/api/movie/upcoming",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "host.docker.internal",
-          "Port": 7186
+          "Port": 5182
         }
       ]
     },
@@ -69,7 +65,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "host.docker.internal",
-          "Port": 7186
+          "Port": 5182
         }
       ]
     },
@@ -81,7 +77,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "host.docker.internal",
-          "Port": 5310
+          "Port": 5182
         }
       ]
     }
