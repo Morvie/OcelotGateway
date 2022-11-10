@@ -21,7 +21,11 @@ builder.Services.AddCors(c => c.AddPolicy(corsPolicy, corsPolicyBuilder =>
 }));
 
 //Configure JWT
-builder.Services.ConfigureJWT(builder.Environment.IsDevelopment(), "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwjoQKGGEUoOY3mUSzs3JrEOmSiLL2QvV94UIRMe71j0zwNvg1eFgNFHu4TYs9h/dZfC+2AVuAxiiHUolGvaAw4oZ4oLA4XmG7WomBWev+bIBF3Ois1CV/z9JwJVARh/rOuhETYmQ+bMXR3AgnQhtC6XKkwqxarVZeYmJutFBCpeagaJ7ptvoJYzjppITrrofx2gfdF4yKbJq1+7J6Dxb7iG41cUq+TndQsKgA4posHr5jWzkyhmIGiLkxXafVWKGnWvtcUqaBcLSK/EvrhQx+MnLT6dgVEYhCZBfMInc9yhVJ8A1qIU9qRJp/BTl6b0yk3QvxGwwTKw54aL63GH0YwIDAQAB");
+var publicKey = builder.Configuration.GetValue<string>("KeyCloak:PublicKey");
+var issuerUrl = builder.Configuration.GetValue<string>("KeyCloak:IssuerURL");
+
+
+builder.Services.ConfigureJWT(builder.Environment.IsDevelopment(), publicKey, issuerUrl);
 
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(c =>

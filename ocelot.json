@@ -13,7 +13,11 @@
           "Host": "host.docker.internal",
           "Port": 5300
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "UpstreamPathTemplate": "/gateway/review/{id}",

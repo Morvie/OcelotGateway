@@ -14,8 +14,16 @@ namespace OcelotGateway.Authentication
 {
     public class ClaimsTransformer : IClaimsTransformation
     {
+        private readonly IConfiguration _configuration;
+        public ClaimsTransformer(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         public Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
         {
+            var Realm = _configuration.GetValue<string>("KeyCloak:Realm");
+
             ClaimsIdentity claimsIdentity = (ClaimsIdentity)principal.Identity;
 
             // flatten resource_access because Microsoft identity model doesn't support nested claims
@@ -26,7 +34,7 @@ namespace OcelotGateway.Authentication
 
                 var content = Newtonsoft.Json.Linq.JObject.Parse(userRole.Value);
 
-                foreach (var role in content["MyApp"]["roles"])
+                foreach (var role in content[Realm]["roles"])
                 {
                     claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, role.ToString()));
                 }
@@ -37,6 +45,8 @@ namespace OcelotGateway.Authentication
     }
     public static class ConfigureAuthentificationServiceExtensions
     {
+        private static IConfiguration config;
+      
         private static RsaSecurityKey BuildRSAKey(string publicKeyJWT)
         {
             RSA rsa = RSA.Create();
@@ -52,7 +62,7 @@ namespace OcelotGateway.Authentication
             return IssuerSigningKey;
         }
 
-        public static void ConfigureJWT(this IServiceCollection services, bool IsDevelopment, string publicKeyJWT)
+        public static void ConfigureJWT(this IServiceCollection services, bool IsDevelopment, string publicKeyJWT, string validIssuer)
         {
             services.AddTransient<IClaimsTransformation, ClaimsTransformer>();
 
@@ -72,7 +82,7 @@ namespace OcelotGateway.Authentication
                 {
                     ValidateAudience = false,
                     ValidateIssuer = false,
-                    ValidIssuers = new[] { "http://host.docker.internal:2222/realms/Morvie" },
+                    ValidIssuers = new[] { validIssuer },
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = BuildRSAKey(publicKeyJWT),
                     ValidateLifetime = true
