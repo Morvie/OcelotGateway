@@ -45,8 +45,7 @@ namespace OcelotGateway.Authentication
     }
     public static class ConfigureAuthentificationServiceExtensions
     {
-        private static IConfiguration config;
-      
+            
         private static RsaSecurityKey BuildRSAKey(string publicKeyJWT)
         {
             RSA rsa = RSA.Create();

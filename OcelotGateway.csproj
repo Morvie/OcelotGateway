@@ -4,7 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>1a50d507-1b64-4250-bf6a-7f40b15132b3</UserSecretsId>
+    <UserSecretsId>Ocelot-Gateway-b4ee722c-722f-4342-a021-1420cdc6bdd3</UserSecretsId>
+    
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
     <DockerComposeProjectPath>docker-compose.dcproj</DockerComposeProjectPath>

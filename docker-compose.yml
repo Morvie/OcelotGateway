@@ -2,13 +2,19 @@ version: '3.4'
 
 services:
   ocelotgateway:
-    image: ${DOCKER_REGISTRY-}ocelotgateway
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-    - 7230:443
+    
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
 
-networks:
-  docker-network:
-    external: true
+
+    ports:
+      - "5230:80"
+
+    volumes:
+      - ${APPDATA}\Microsoft\UserSecrets\:/root/.microsoft/UserSecrets
+      - ${USERPROFILE}\.aspnet\https\OcelotGateway.pfx:/root/.aspnet/https/OcelotGateway.pfx
+      
