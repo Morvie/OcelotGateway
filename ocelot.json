@@ -35,12 +35,22 @@
         "AllowedScopes": []
       }
     },
-
-
     {
       "UpstreamPathTemplate": "/gateway/popular",
       "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/api/movie/popular",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 5182
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/movie/similar/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/movie/similar/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -77,6 +87,18 @@
       "UpstreamPathTemplate": "/gateway/credits/movie/{id}",
       "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/api/credits/movie/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 5182
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/feeds/movie/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/feeds/movie/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
