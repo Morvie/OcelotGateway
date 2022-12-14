@@ -15,9 +15,10 @@ builder.Configuration.AddJsonFile("ocelot.json");
 
 builder.Services.AddCors(c => c.AddPolicy(corsPolicy, corsPolicyBuilder =>
 {
-    corsPolicyBuilder.WithOrigins("http://localhost:3000")
+    corsPolicyBuilder.WithOrigins("https://morvie-frontend-alpha.vercel.app/")
         .AllowAnyMethod()
-        .AllowAnyHeader();
+        .AllowAnyHeader()
+        .AllowAnyOrigin();
 }));
 
 //Configure JWT

@@ -1,0 +1,16 @@
+{
+    "Logging": {
+      "LogLevel": {
+        "Default": "Trace",
+        "Microsoft.AspNetCore": "Trace",
+        "Microsoft.Hosting.Lifetime": "Trace"
+      }
+    },
+    "KeyCloak": {
+      "IssuerURL": "Keycloak URL of issuer with realm-name",
+      "PublicKey": "Public key of keycloak",
+      "Realm": "Realm-name"
+    },
+    "AllowedHosts": "*"
+  }
+  

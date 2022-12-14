@@ -96,14 +96,14 @@
       ]
     },
     {
-      "UpstreamPathTemplate": "/gateway/feeds/movie/{id}",
+      "UpstreamPathTemplate": "/gateway/feed/movie/{id}",
       "UpstreamHttpMethod": [ "GET" ],
-      "DownstreamPathTemplate": "/api/feeds/movie/{id}",
+      "DownstreamPathTemplate": "/api/feed/movie/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "host.docker.internal",
-          "Port": 5182
+          "Port": 5800
         }
       ]
     }
