@@ -102,7 +102,19 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "host.docker.internal",
+          "Host": "localhost",
+          "Port": 7800
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/feed/",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamPathTemplate": "/api/feed/",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
           "Port": 7800
         }
       ]
