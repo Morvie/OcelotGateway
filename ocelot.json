@@ -99,11 +99,11 @@
       "UpstreamPathTemplate": "/gateway/feed/movie/{id}",
       "UpstreamHttpMethod": [ "GET" ],
       "DownstreamPathTemplate": "/api/feed/movie/{id}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "host.docker.internal",
-          "Port": 5800
+          "Port": 7800
         }
       ]
     }
