@@ -21,6 +21,11 @@ builder.Services.AddCors(c => c.AddPolicy(corsPolicy, corsPolicyBuilder =>
         .AllowAnyOrigin();
 }));
 
+builder.Services.AddOcelot(builder.Configuration);
+
+// Add custom claim authorizer to project:
+builder.Services.DecorateClaimAuthoriser();
+
 //Configure JWT
 var publicKey = builder.Configuration.GetValue<string>("KeyCloak:PublicKey");
 var issuerUrl = builder.Configuration.GetValue<string>("KeyCloak:IssuerURL");
@@ -29,6 +34,8 @@ var issuerUrl = builder.Configuration.GetValue<string>("KeyCloak:IssuerURL");
 builder.Services.ConfigureJWT(builder.Environment.IsDevelopment(), publicKey, issuerUrl);
 
 builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Morvie-Keycloak", Version = "v1" });
@@ -54,15 +61,14 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-builder.Services.AddOcelot(builder.Configuration);
-
+// Add Ocelot to the project with a config file.
+builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 
 var app = builder.Build();
 
-
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
     app.UseSwagger();
     app.UseSwaggerUI();
 }
